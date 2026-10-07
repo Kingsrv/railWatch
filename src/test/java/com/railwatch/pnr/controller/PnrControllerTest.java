@@ -27,7 +27,7 @@ class PnrControllerTest {
     void shouldReturnPnrResponseForValidPnr() throws Exception {
 
         PnrResponse response =
-                new PnrResponse("1234567890", "WAITING");
+                new PnrResponse("1234567890", "WAITING",java.util.List.of());
 
         Mockito.when(pnrService.getPnr("1234567890"))
                 .thenReturn(response);

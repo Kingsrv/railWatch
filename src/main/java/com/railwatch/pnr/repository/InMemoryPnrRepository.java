@@ -13,7 +13,7 @@ public class InMemoryPnrRepository implements PnrRepository {
     private final Map<String, Pnr> pnrs = new HashMap<>();
 
     public InMemoryPnrRepository() {
-        pnrs.put("1234567890", new Pnr("1234567890", PnrStatus.WAITING));
+        pnrs.put("1234567890", new Pnr("1234567890", PnrStatus.WAITING, java.util.List.of()));
     }
 
     @Override

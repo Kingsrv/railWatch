@@ -1,10 +1,10 @@
 package com.railwatch.pnr.entity;
 
 import com.railwatch.pnr.domain.PnrStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class PnrEntity {
@@ -14,6 +14,13 @@ public class PnrEntity {
 
     @Enumerated(EnumType.STRING)
     private PnrStatus status;
+
+    @OneToMany(
+            mappedBy = "pnr",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<PnrPassengerEntity> passengers = new ArrayList<>();
 
     public PnrEntity() {
     }
@@ -29,5 +36,9 @@ public class PnrEntity {
 
     public PnrStatus getStatus() {
         return status;
+    }
+
+    public List<PnrPassengerEntity> getPassengers() {
+        return passengers;
     }
 }
