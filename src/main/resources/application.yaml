@@ -3,9 +3,9 @@ spring:
     name: railWatch
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/railwatch
-    username: tiyashadatta
-    password:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/railwatch}
+    username: ${DB_USERNAME:tiyashadatta}
+    password: ${DB_PASSWORD:}
 
   flyway:
     enabled: true
